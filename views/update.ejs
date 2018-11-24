@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form action="/update" method="post">
+                    <h2>
+                        <%= heading %>
+                    </h2>
+                    <div class="form-data">
+                        <label for="teamOneGoal">Team 1 : </label>
+                        <input class="form-control" type="number" name="teamOneGoal" id="team1" placeholder="Enter team one goal">
+                    </div><br>
+                    <div class="form-data">
+                        <label for="teamTwoGoal">Team 2 : </label>
+                        <input class="form-control" type="number" name="teamTwoGoal" id="team2" placeholder="Enter team one goal">
+                    </div><br>
+                    <div class="text-center">
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </div>
+                </form>
+                <p>OR</p>
+                <h2>Update Schedule</h2>
+                <a href="/schedule/update"><button type="submit">Click...!</button></a>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+    </script>
+</body>
+
+</html>

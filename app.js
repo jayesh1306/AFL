@@ -46,6 +46,21 @@ app.use("/register", registerRouter);
 app.use("/register/players", playerRouter);
 app.use("/register/coach", coachRouter);
 
+//Socket IO Server
+io.on("connection", function(socket) {
+  console.log("CONNECTED SOCKET");
+  socket.on("team1Goal", function(team1Goal) {
+    io.emit("team1Goal", team1Goal);
+  });
+  socket.on("team1player", function(team1player){
+    io.emit("team1player", team1player);
+    console.log(team1player); 
+  })
+  socket.on("team2Goal", function(team2Goal) {
+    io.emit("team2Goal", team2Goal);
+  });
+});
+
 //Error Page Router
 app.use(function(req, res) {
   res.sendFile(__dirname + "/404.html");
@@ -67,7 +82,7 @@ app.use(function(err, req, res, next) {
   res.render("error");
 });
 
-app.listen(port, function() {
+http.listen(port, function() {
   console.log("Server Listening On " + port);
 });
 

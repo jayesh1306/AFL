@@ -8,32 +8,4 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/", function(req, res) {
-  con.connect(function() {
-    var sql =
-      "INSERT INTO `players`(`usn`, `name`,`age`, `email`, `contact`, `gender`, `team`) VALUES ('" +
-      req.body.USN +
-      "','" +
-      req.body.name +
-      "','" +
-      req.body.age +
-      "','" +
-      req.body.email +
-      "','" +
-      req.body.contact +
-      "','" +
-      req.body.gender +
-      "','" +
-      req.body.teams +
-      "')";
-    con.query(sql, function(err, result) {
-      if (err) throw err;
-      console.log("1 record inserted");
-    });
-  });
-  res.render("register", {
-    msg:
-      "Thankyou for the Registration. You have Registered Successfully"
-  });
-});
 module.exports = router;

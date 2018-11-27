@@ -11,6 +11,13 @@ router.get("/", function(req, res) {
   });
 });
 
+router.get("/getTeamPlayers", function(req, res){
+  var teamPlayers = playerdetailsRepo.getTeamPlayers(req.query.teamId);
+  teamPlayers.then(function(player){
+    res.send(player);
+  })
+})
+
 // Get Player Details
 router.get("/players", function(req, res, next) {
   var players = playerdetailsRepo

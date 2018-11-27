@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="<%= image %>" type="image/x-icon">
+    <link rel="shortcut icon" href="<%= titleimage %>" type="image/x-icon">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <title>
         <%= title %>
@@ -38,7 +38,7 @@
                     <i style="color:#223881">Football</i>
                     <i style="color:#F49424">League.</i>
                 </b>
-                <img class="disp" style="float:right" src="http://www.acharya.ac.in/img/Acharya_Logo1.PNG" alt="Acharya Logo "
+                <img class="disp" style="float:right" src="<%= titleimage %>" alt="Acharya Logo "
                     width="90" height="80">
             </h1>
             <br>
@@ -100,10 +100,20 @@
                     <div class="col-md-4"></div>
                 </div>
             </div>
-            <script src="/socket/socket.io.js"></script>
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
             <script>
-                var socket = io("localhost");
-            </script>
+                  var socket = io();
+                  socket.on('team1Goal', function(team1Goal){
+                    document.getElementById('goal1').innerHTML = team1Goal;
+                    // $('#goal1').append(team1Goal);
+                    console.log(team1Goal)
+                  });
+                  socket.on('team2Goal', function(team2Goal){
+                    document.getElementById('goal2').innerHTML = team2Goal;
+                    console.log(team2Goal);
+                  });
+              </script>
 </body>
 
 </html>

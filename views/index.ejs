@@ -33,11 +33,13 @@
     <div class="container">
         <div>
             <h1 class="title">
-                <b>
-                    <i style="color:#F49424">Acharya</i>
-                    <i style="color:#223881">Football</i>
-                    <i style="color:#F49424">League.</i>
-                </b>
+                <a href="/">
+                    <b>
+                      <i style="color:#F49424">Acharya</i>
+                      <i style="color:#223881">Football</i>
+                      <i style="color:#F49424">League.</i>
+                    </b>
+                  </a>
                 <img class="disp" style="float:right" src="<%= titleimage %>" alt="Acharya Logo "
                     width="90" height="80">
             </h1>
@@ -74,7 +76,7 @@
                     </div>
                     <div class="col-md-6 text-center">
                         <div>
-                            <img src="<%= image %>" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
+                            <img src="<%= image1 %>" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
                         </div>
                     </div>
                 </div>
@@ -106,12 +108,9 @@
                   var socket = io();
                   socket.on('team1Goal', function(team1Goal){
                     document.getElementById('goal1').innerHTML = team1Goal;
-                    // $('#goal1').append(team1Goal);
-                    console.log(team1Goal)
                   });
                   socket.on('team2Goal', function(team2Goal){
                     document.getElementById('goal2').innerHTML = team2Goal;
-                    console.log(team2Goal);
                   });
               </script>
 </body>

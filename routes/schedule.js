@@ -39,7 +39,6 @@ router.post("/update", function(req, res) {
       "')";
     con.query(sql, function(err, result) {
       if (err) throw err;
-      console.log("1 record inserted");
     });
   });
   res.render("updateSchedule", {

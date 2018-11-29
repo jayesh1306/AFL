@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const con = require("../connection");
 
-router.post("/", function(req, res) {
+router.post("/", function (req, res) {
   if (req.body.passwd === "admin") {
     res.render("update", {
       title: "Update Score Here",
@@ -17,18 +17,22 @@ router.post("/", function(req, res) {
   }
 });
 
-router.post("/insert", function(req, res) {
-  console.log(req.body);
-  con.connect(function() {
+router.post("/insert", function (req, res) {
+  if (req.body.goal1 == "") {
+    var x = req.body.goal2;
+  }
+  if (req.body.goal2 == "") {
+    var x = req.body.goal1
+  }
+  con.connect(function () {
     var sql =
       "INSERT INTO `goals`(`goal`, `player_usn`) VALUES ('" +
-      req.body.goal +
+      x +
       "','" +
       req.body.player_usn +
       "')";
-    con.query(sql, function(err, result) {
+    con.query(sql, function (err, result) {
       if (err) throw err;
-      console.log("1 record inserted");
     });
   });
 });

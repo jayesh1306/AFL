@@ -66,8 +66,8 @@ router.post("/send", function(req, res, next) {
   // setup email data with unicode symbols
   let mailOptions = {
     from: '"Jayesh Prajapati 👻" <jayesh.jp@gmail.com>', // sender address
-    to: "jayesh.beis@gmail.com", // list of receivers
-    subject: "Node Request", // Subject line
+    to: "info@acharya.ac.in", // list of receivers
+    subject: "Complaint About Website", // Subject line
     text: "Hi there", // plain text body
     html: output // html body
   };
@@ -92,7 +92,6 @@ router.post("/send", function(req, res, next) {
         "')";
       con.query(sql, function(err, result) {
         if (err) throw err;
-        console.log("1 record inserted");
       });
     });
     console.log("Message sent: %s", info.messageId);

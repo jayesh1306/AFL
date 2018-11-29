@@ -11,7 +11,7 @@ router.get("/", function(req, res) {
 router.post("/", function(req, res) {
   con.connect(function() {
     var sql =
-      "INSERT INTO `coach`(`coach_id`, `coach_name`, `email`, `contact`, `gender`, `team`) VALUES ('" +
+      "INSERT INTO `coach`(`coach_id`, `coach_name`, `email`, `contact`, `gender`, `team_id`) VALUES ('" +
       req.body.coach_id +
       "','" +
       req.body.name +
@@ -22,11 +22,10 @@ router.post("/", function(req, res) {
       "','" +
       req.body.gender +
       "','" +
-      req.body.teams +
+      req.body.team_id +
       "')";
     con.query(sql, function(err, result) {
       if (err) throw err;
-      console.log("1 record inserted");
     });
   });
   res.render("coach", {

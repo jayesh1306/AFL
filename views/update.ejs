@@ -33,9 +33,9 @@
             </div>
             <div class="form-data">
               <label for="playerusn">Team 1 Players : </label>
-              <select class="form-control" name="player_usn" id="playerusn">
-                <option value="1ay16is000">Jayesh</option>
-                <option value="1ay16is999">Pavan</option>
+              <select class="form-control" name="player_usn" id="playerusn" >
+                <option value="1ay16is085">Jayesh</option>
+                <option value="1ay16is100">Pavan</option>
               </select>
             </div>
             <br />
@@ -88,7 +88,8 @@
         }
         axios
           .post("/update/insert", {
-            goal: document.getElementById("team1").value,
+            goal1: document.getElementById("team1").value,
+            goal2 : document.getElementById("team2").value,
             player_usn : document.getElementById("playerusn").value 
           })
           .then(function(response) {

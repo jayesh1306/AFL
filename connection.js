@@ -10,7 +10,7 @@ var con = mysql.createConnection({
 //Get schedule Page
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected");
+  console.log("Mysql Connected");
 });
 
 module.exports = con;

@@ -8,9 +8,15 @@ var port = process.env.PORT || 3000;
 const app = express();
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
+const StoredProcedures = require('mysql-stored-procedures');
+const sps = new StoredProcedures();
+
+sps.create('stored-procedure.sql', cb);
 
 //Body Parser Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(bodyParser.json());
 
 //Routers Required
@@ -30,7 +36,9 @@ app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -47,32 +55,30 @@ app.use("/register/players", playerRouter);
 app.use("/register/coach", coachRouter);
 
 //Socket IO Server
-io.on("connection", function(socket) {
-  console.log("CONNECTED SOCKET");
-  socket.on("team1Goal", function(team1Goal) {
+io.on("connection", function (socket) {
+  socket.on("team1Goal", function (team1Goal) {
     io.emit("team1Goal", team1Goal);
   });
-  socket.on("team1player", function(team1player){
+  socket.on("team1player", function (team1player) {
     io.emit("team1player", team1player);
-    console.log(team1player); 
   })
-  socket.on("team2Goal", function(team2Goal) {
+  socket.on("team2Goal", function (team2Goal) {
     io.emit("team2Goal", team2Goal);
   });
 });
 
 //Error Page Router
-app.use(function(req, res) {
+app.use(function (req, res) {
   res.sendFile(__dirname + "/404.html");
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
@@ -82,7 +88,7 @@ app.use(function(err, req, res, next) {
   res.render("error");
 });
 
-http.listen(port, function() {
+http.listen(port, function () {
   console.log("Server Listening On " + port);
 });
 

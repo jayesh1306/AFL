@@ -64,19 +64,19 @@
             <h2>Player Registration</h2>
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" name="name" />
+              <input type="text" class="form-control" name="name" placeholder="Enter Name" required/>
             </div>
             <div class="form-group">
               <label for="USN">USN</label>
-              <input type="text" class="form-control" name="USN" />
+              <input type="text" class="form-control" name="USN" placeholder="Enter Usn (Mandatory)" required/>
             </div>
             <div class="form-group">
               <label for="age">Age</label>
-              <input type="number" class="form-control" name="age" />
+              <input type="number" class="form-control" name="age" min="19" max="26" placeholder="Enter Age" required/>
             </div>
             <div class="form-group">
               <label for="email">Acharya Email</label>
-              <input type="email" class="form-control" name="email" />
+              <input type="email" class="form-control" name="email" placeholder="Enter Email" required/>
             </div>
             <div class="form-group">
               <label for="contact">Contact No</label>
@@ -86,6 +86,7 @@
                 maxlength="10"
                 minlength="10"
                 class="form-control"
+                placeholder="Enter Contact Number"
               />
             </div>
             <div class="form-group">
@@ -107,7 +108,7 @@
             </div>
             <div class="form-group">
               <label for="teams">Which Team you want to register for ?</label>
-              <select name="team_id" class="form-control">
+              <select name="team_id" class="form-control" required>
                 <option value="12">Chelsea</option>
                 <option value="13">Barcelona</option>
                 <option value="14">AFC</option>

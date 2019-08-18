@@ -15,3 +15,11 @@ To run server in normal mode, run command
 node app.js
 ```
 
+It will show up as 
+```
+App Listening on 3000
+```
+
+Open http://localhost:3000 on your browser.
+
+Thankyou.

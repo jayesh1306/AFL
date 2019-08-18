@@ -1,7 +1,7 @@
 # AFL
 Live Score Update of Football Match tof Acharya Institutes, Bangalore.
 
-#Steps to run App on your System.
+## Steps to run App on your System.
 
 
 To install all dependencies, type command in terminal from your project folder.

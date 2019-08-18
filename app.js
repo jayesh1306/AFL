@@ -85,7 +85,5 @@ app.use(function (err, req, res, next) {
 });
 
 http.listen(port, function () {
-  console.log("Server Listening On " + port);
+  console.log("App Listening On " + port);
 });
-
-module.exports = app;

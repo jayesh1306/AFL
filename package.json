@@ -21,6 +21,6 @@
     "nodemailer": "^4.6.8",
     "req-flash": "0.0.3",
     "socket.io": "^2.1.1",
-    "validator": "^10.9.0"
+    "validator": "^13.7.0"
   }
 }

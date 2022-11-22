@@ -20,7 +20,7 @@
     "mysql-stored-procedures": "^1.0.1",
     "nodemailer": "^4.6.8",
     "req-flash": "0.0.3",
-    "socket.io": "^2.1.1",
+    "socket.io": "^2.5.0",
     "validator": "^10.9.0"
   }
 }
